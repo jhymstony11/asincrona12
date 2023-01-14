@@ -1,0 +1,16 @@
+body{
+    background-image: url("../../../assets/wallpaperflare.com_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    height:  100vh;
+}
+
+#titulo{
+    color: antiquewhite;
+    background-color: rgb(139, 68, 136);
+}
+
+.sub{
+    color: antiquewhite;
+    
+}

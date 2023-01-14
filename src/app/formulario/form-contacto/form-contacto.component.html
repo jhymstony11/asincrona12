@@ -1,0 +1,71 @@
+<body>
+    <h1 class="text-center" id="titulo">FORMULARIO DE CONTACTO</h1>
+    <section class="ms-3">
+        <h3 *ngIf="exitoso==true" [ngStyle]="{'color':'white','background-color':'#66cdaa'}" class="text-center">GRACIAS POR COMUNICARTE CON NOSOTROS</h3>
+    </section>
+    <section class="container-sm">
+        <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+            <section class="row">
+                <section class="form-group m-3 col">
+                <label for="nombres" class="sub">Nombres</label>
+                <input type="text" class="form-control" formControlName="nombres">
+                <section *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+                    <section *ngIf="nombres?.errors?.['required']" class="alert alert-success">
+                        El nombre debe ser llenado
+                    </section>               
+                </section>
+            </section>
+    
+            <section class="form-group m-3 col">
+                <label for="email" class="sub">Email:</label>
+                <input type="text" class="form-control" formControlName="email">
+                <section *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                    <section *ngIf="email?.errors?.['required']" class="alert alert-success">
+                        El Email debe ser llenado
+                    </section>               
+                </section>
+            </section>
+
+            </section>
+            <section class="form-group m-3">
+                <label for="telefono" class="sub">Telefono:</label>
+                <input type="text" maxlength="9" class="form-control" formControlName="telefono" [ngStyle]="{'border-color':telefono?.invalid && (telefono?.dirty || telefono?.touched)?'red':'gray'}">
+                <section *ngIf="telefono?.invalid && (telefono?.dirty || telefono?.touched)">
+                    <section *ngIf="telefono?.errors?.['required']" class="alert alert-success">
+                        El telefono debe ser llenado
+                    </section>
+                    <section *ngIf="telefono?.errors?.['pattern']" class="alert alert-warning">
+                        El telefono solo puede contener 9 dígitos
+                    </section>
+                </section>
+            </section>
+    
+            <section class="form-group m-3">
+                <label for="asunto" class="sub">Asunto</label>
+                <textarea name="asunto" id="asunto" cols="170" rows="2" formControlName="asunto"></textarea>
+                <section *ngIf="asunto?.invalid && (asunto?.dirty || asunto?.touched)">
+                    <section *ngIf="asunto?.errors?.['required']" class="alert alert-success">
+                        El nombre debe ser llenado
+                    </section>               
+                </section>
+            </section>
+    
+            <section class="form-group m-3">
+                <label for="mensaje" class="sub">Mensaje</label>
+                <textarea name="mensaje" id="mensaje" cols="170" rows="4" formControlName="mensaje"></textarea>
+                <section *ngIf="mensaje?.invalid && (mensaje?.dirty || mensaje?.touched)">
+                    <section *ngIf="mensaje?.errors?.['required']" class="alert alert-success">
+                        El nombre debe ser llenado
+                    </section>               
+                </section>
+            </section>
+    
+            <section class="form-group m-3 text-center">
+                <input type="submit" value="Enviar" class="btn btn-primary" [disabled]="registroForm.invalid"  [ngStyle]="{'color':'white','background-color':'#000000'}">
+            </section>
+        </form>
+    
+    </section>
+     
+</body>
